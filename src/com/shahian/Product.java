@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -16,5 +17,6 @@ public class Product {
     private double price;
     private Date date;
     private LocalDate localDate;
+    private LocalDateTime localDateTime;
 
 }

@@ -3,6 +3,7 @@ package com.shahian;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,13 +15,13 @@ public class Main {
 
     public static void main(String[] args) throws ParseException {
         List<Product> products = Arrays.asList(
-                new Product("pen", 10, 40000, new SimpleDateFormat("dd-MM-yyyy").parse("04-06-2019"), LocalDate.of(2019, Month.DECEMBER, 04)),
-                new Product("pencil", 10, 50000, new SimpleDateFormat("dd-MM-yyyy").parse("21-01-2019"), LocalDate.of(2019, Month.NOVEMBER, 04)),
-                new Product("eraser", 10, 60000, new SimpleDateFormat("dd-MM-yyyy").parse("15-12-2019"), LocalDate.of(2019, Month.MARCH, 04)),
-                new Product("marker", 10, 10000, new SimpleDateFormat("dd-MM-yyyy").parse("26-07-2019"), LocalDate.of(2019, Month.MAY, 04)),
-                new Product("bag", 10, 120000, new SimpleDateFormat("dd-MM-yyyy").parse("03-09-2019"), LocalDate.of(2019, Month.JANUARY, 04)),
-                new Product("noteBook", 10, 350000, new SimpleDateFormat("dd-MM-yyyy").parse("14-11-2019"), LocalDate.of(2019, Month.APRIL, 04)),
-                new Product("pencil case", 10, 1500, new SimpleDateFormat("dd-MM-yyyy").parse("29-02-2019"), LocalDate.of(2019, Month.AUGUST, 04))
+     new Product("pen", 10, 40000, new SimpleDateFormat("dd-MM-yyyy").parse("04-06-2019"), LocalDate.of(2019, Month.DECEMBER, 04), LocalDateTime.of(2020, Month.APRIL, 24, 9, 44, 15)),
+     new Product("pencil", 10, 50000, new SimpleDateFormat("dd-MM-yyyy").parse("21-01-2019"), LocalDate.of(2019, Month.JULY, 04), LocalDateTime.of(2020, Month.MARCH, 1, 8, 30, 25)),
+     new Product("eraser", 10, 60000, new SimpleDateFormat("dd-MM-yyyy").parse("15-12-2019"), LocalDate.of(2019, Month.MARCH, 04), LocalDateTime.of(2020, Month.APRIL, 11, 6, 10, 35)),
+     new Product("marker", 10, 10000, new SimpleDateFormat("dd-MM-yyyy").parse("26-07-2019"), LocalDate.of(2019, Month.MAY, 04), LocalDateTime.of(2020, Month.JANUARY, 15, 5, 25, 45)),
+     new Product("bag", 10, 120000, new SimpleDateFormat("dd-MM-yyyy").parse("03-09-2019"), LocalDate.of(2019, Month.JANUARY, 04), LocalDateTime.of(2020, Month.APRIL, 9, 1, 12, 5)),
+     new Product("noteBook", 10, 350000, new SimpleDateFormat("dd-MM-yyyy").parse("14-11-2019"), LocalDate.of(2019, Month.APRIL, 04), LocalDateTime.of(2020, Month.APRIL, 23, 3, 16, 12)),
+     new Product("pencil case", 10, 1500, new SimpleDateFormat("dd-MM-yyyy").parse("29-02-2019"), LocalDate.of(2019, Month.AUGUST, 04), LocalDateTime.of(2020, Month.APRIL, 10, 2, 3, 36))
 
         );
         //beforJava8(products);
@@ -33,16 +34,77 @@ public class Main {
         //sortingByDateAscending(products);
         //sortingByDateDescending(products);
         //sortingDateBYMethodReferencesAscending(products);
-        //sortingDateBYMethodReferencesDscending(products);
+        //sortingDateBYMethodReferencesDescending(products);
         //sortingDateBYStreamApiAscending(products);
-        //sortingDateBYStreamApiDscending(products);
-        sortingByLocalDateAscending(products);
+        //sortingDateBYStreamApiDescending(products);
+        //sortingByLocalDateAscending(products);
+        //sortingByLocalDateDescending(products);
+        //sortingLocalDateBYMethodReferencesAscending(products);
+        //sortingLocalDateBYMethodReferencesDescending(products);
+        //sortingLocalDateBYStreamApiAscending(products);
+        //sortingLocalDateBYStreamApiDescending(products);
+        //sortingByLocalDateTimeAscending(products);
+        sortingByLocalDateTimeDescending(products);
+    }
+
+    private static void sortingByLocalDateTimeDescending(List<Product> products) {
+        Comparator<Product>comparator=(o1, o2) -> {
+            return o1.getLocalDateTime().compareTo(o2.getLocalDateTime());
+        };
+        Collections.sort(products,comparator);
+        Collections.reverse(products);
+        products.forEach(System.out::println);
+    }
+
+    private static void sortingByLocalDateTimeAscending(List<Product> products) {
+        Comparator<Product>comparator=(o1, o2) -> {
+            return o1.getLocalDateTime().compareTo(o2.getLocalDateTime());
+        };
+        Collections.sort(products,comparator);
+        products.forEach(System.out::println);
+    }
+
+    private static void sortingLocalDateBYStreamApiDescending(List<Product> products) {
+        products.stream()
+                .sorted(Comparator.comparing(Product::getLocalDate).reversed())
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+    }
+
+    private static void sortingLocalDateBYStreamApiAscending(List<Product> products) {
+        products.stream()
+                .sorted(Comparator.comparing(Product::getLocalDate))
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+    }
+
+    private static void sortingLocalDateBYMethodReferencesDescending(List<Product> products) {
+        products.sort(Comparator.comparing(Product::getLocalDate).reversed());
+        products.forEach(System.out::println);
+    }
+
+    private static void sortingLocalDateBYMethodReferencesAscending(List<Product> products) {
+        products.sort(Comparator.comparing(Product::getLocalDate));
+        products.forEach(System.out::println);
+    }
+
+    private static void sortingByLocalDateDescending(List<Product> products) {
+        Comparator<Product>comparator=(p1, p2) ->{
+            return p2.getLocalDate().compareTo(p1.getLocalDate());
+        };
+        Collections.sort(products,comparator);
+        products.forEach(System.out::println);
     }
 
     private static void sortingByLocalDateAscending(List<Product> products) {
+        Comparator<Product>comparator=(p1, p2) ->{
+            return p1.getLocalDate().compareTo(p2.getLocalDate());
+        };
+        Collections.sort(products,comparator);
+        products.forEach(System.out::println);
     }
 
-    private static void sortingDateBYStreamApiDscending(List<Product> products) {
+    private static void sortingDateBYStreamApiDescending(List<Product> products) {
         products.stream()
                 .sorted(Comparator.comparing(Product::getDate).reversed())
                 .collect(Collectors.toList())
@@ -61,7 +123,7 @@ public class Main {
         products.forEach(System.out::println);
     }
 
-    private static void sortingDateBYMethodReferencesDscending(List<Product> products) {
+    private static void sortingDateBYMethodReferencesDescending(List<Product> products) {
         products.sort(Comparator.comparing(Product::getDate).reversed());
         products.forEach(System.out::println);
     }
