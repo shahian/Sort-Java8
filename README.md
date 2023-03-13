@@ -5,12 +5,12 @@ In Java, both Comparator and Comparable are interfaces used for sorting collecti
  ## Table of Contents
 1. [Comparable](#comparable)
 2. [Comparator](#comparator)
-3. [Example](#example)
+
 
 ### comparable
 ***
 Comparable is an interface that is implemented by a class to indicate that its instances are "naturally" ordered. The Comparable interface contains a single method called compareTo(), which compares the object with another object of the same type and returns a negative integer, zero, or a positive integer depending on whether the object is less than, equal to, or greater than the other object, respectively.
-
+  <!-- 
 Here is an example of a Person class that implements the Comparable interface to sort instances of the class based on their age: 
 
 public class Person implements Comparable<Person> {
@@ -23,14 +23,14 @@ public class Person implements Comparable<Person> {
     }
 }
 The compareTo() method compares two Person objects based on their age field.
-
+-->
 
 ### comparator
 ***
 Comparator, on the other hand, is an interface that defines a way to compare two objects that are not Comparable or to override the natural order defined by Comparable. The Comparator interface has a method called compare(), which takes two objects of a given type and returns a negative integer, zero, or a positive integer depending on whether the first object is less than, equal to, or greater than the second object, respectively.
-
+<!--
 Here is an example of a PersonAgeComparator class that implements the Comparator interface to sort instances of the Person class based on their age:
-
+</br>
 
 public class PersonAgeComparator implements Comparator<Person> {
     @Override
@@ -41,7 +41,7 @@ public class PersonAgeComparator implements Comparator<Person> {
 
 
 The compare() method compares two Person objects based on their age field.
-
+-->
 To use these interfaces for sorting, you can call the sort() method on an array or list and pass either a Comparator instance or the Comparable implementation of the objects in the collection as an argument.
 
   <!-- 
