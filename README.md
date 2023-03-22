@@ -10,9 +10,9 @@ In Java, both Comparator and Comparable are interfaces used for sorting collecti
 ### comparable
 ***
 Comparable is an interface that is implemented by a class to indicate that its instances are "naturally" ordered. The Comparable interface contains a single method called compareTo(), which compares the object with another object of the same type and returns a negative integer, zero, or a positive integer depending on whether the object is less than, equal to, or greater than the other object, respectively.
-  <!-- 
+ 
 Here is an example of a Person class that implements the Comparable interface to sort instances of the class based on their age: 
-
+```
 public class Person implements Comparable<Person> {
     private String name;
     private int age;
@@ -22,8 +22,10 @@ public class Person implements Comparable<Person> {
         return Integer.compare(this.age, other.age);
     }
 }
+
+```
 The compareTo() method compares two Person objects based on their age field.
--->
+ 
 
 ### comparator
 ***
