@@ -5,6 +5,7 @@ In Java, both Comparator and Comparable are interfaces used for sorting collecti
  ## Table of Contents
 1. [Comparable](#comparable)
 2. [Comparator](#comparator)
+3. [ExplanationCode](#explanationCode)
 
 
 ### comparable
@@ -44,6 +45,22 @@ public class PersonAgeComparator implements Comparator<Person> {
 The compare() method compares two Person objects based on their age field.
  
 To use these interfaces for sorting, you can call the sort() method on an array or list and pass either a Comparator instance or the Comparable implementation of the objects in the collection as an argument.
+
+### explanationCode
+```
+private static void sortingByLocalDateTimeDescending(List<Product> products) {
+        Comparator<Product>comparator=(o1, o2) -> {
+            return o1.getLocalDateTime().compareTo(o2.getLocalDateTime());
+        };
+        Collections.sort(products,comparator);
+        Collections.reverse(products);
+        products.forEach(System.out::println);
+    }
+```
+This code is sorting a list of products by LocalDateTime in descending order. It is using a comparator to compare the LocalDateTime of each product. After the comparator is used to sort the list, it is then reversed so that the products are in descending order. Finally, the sorted list is printed out.
+
+This is an example of a comparator lambda expression. It compares two Product objects, o1 and o2, and returns an integer that is the result of comparing their local date and time values. This comparator can be used to sort a list of Product objects according to their local date and time values.
+
 
   <!-- 
   ## Table of Contents
