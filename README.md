@@ -5,7 +5,7 @@ In Java, both Comparator and Comparable are interfaces used for sorting collecti
  ## Table of Contents
 1. [Comparable](#comparable)
 2. [Comparator](#comparator)
-3. [ExplanationCode](#explanationCode)
+3. [Explanation Code](#explanationCode)
 
 
 ### comparable
