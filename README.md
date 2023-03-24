@@ -71,6 +71,14 @@ This code is sorting a list of products by LocalDateTime in descending order. It
 
 This is an example of a comparator lambda expression. It compares two Product objects, o1 and o2, and returns an integer that is the result of comparing their local date and time values. This comparator can be used to sort a list of Product objects according to their local date and time values.
 
+another Example
+```
+ products.stream()
+                .sorted(Comparator.comparing(Product::getLocalDate).reversed())
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+ ```
+This code uses the stream() method to put the elements of the products list into a Stream. The sorted() method is then used with a Comparator to sort the elements in the Stream by their LocalDate in reverse order. Finally, the collect() method is used to collect the Stream into a List and the forEach() method is used to iterate over the List and print the elements to the console.
 
   <!-- 
   ## Table of Contents
