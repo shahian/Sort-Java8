@@ -27,7 +27,6 @@ public class Person implements Comparable<Person> {
 ```
 The compareTo() method compares two Person objects based on their age field.
  
-
 ### comparator
 ***
 Comparator, on the other hand, is an interface that defines a way to compare two objects that are not Comparable or to override the natural order defined by Comparable. The Comparator interface has a method called compare(), which takes two objects of a given type and returns a negative integer, zero, or a positive integer depending on whether the first object is less than, equal to, or greater than the second object, respectively.
