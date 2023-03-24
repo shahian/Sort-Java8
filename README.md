@@ -46,7 +46,16 @@ The compare() method compares two Person objects based on their age field.
  
 To use these interfaces for sorting, you can call the sort() method on an array or list and pass either a Comparator instance or the Comparable implementation of the objects in the collection as an argument.
 ### Stream 
+The Java Stream API provides a powerful mechanism for sorting elements in a sequence. To use stream for sorting in Java, simply call the sorted() method on the Stream object, passing in a Comparator for the type of objects in the Stream.
 
+Example:
+```
+List<String> strings = Arrays.asList("a", "b", "c", "d"); 
+
+strings.stream() 
+    .sorted((s1,s2) -> s1.compareTo(s2)) 
+    .forEach(System.out::println); 
+ ```
 ### explanationCode
 ```
 private static void sortingByLocalDateTimeDescending(List<Product> products) {
