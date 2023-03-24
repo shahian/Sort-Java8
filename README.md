@@ -5,7 +5,8 @@ In Java, both Comparator and Comparable are interfaces used for sorting collecti
  ## Table of Contents
 1. [Comparable](#comparable)
 2. [Comparator](#comparator)
-3. [Explanation Code](#explanationCode)
+3. [Stream](#Stream)
+4. [Explanation Code](#explanationCode)
 
 
 ### comparable
@@ -44,6 +45,7 @@ public class PersonAgeComparator implements Comparator<Person> {
 The compare() method compares two Person objects based on their age field.
  
 To use these interfaces for sorting, you can call the sort() method on an array or list and pass either a Comparator instance or the Comparable implementation of the objects in the collection as an argument.
+### Stream 
 
 ### explanationCode
 ```
